@@ -33,6 +33,7 @@ public class WalrusSmartHomeApp {
              BufferedReader lineReader = new BufferedReader(reader);){
 
             while (true) {
+                
                 while ((line = lineReader.readLine()) != null) {
                     Optional<Map<String, String>> mapOpt = lineParser.parseLine(line);
                     if (mapOpt.isPresent()) {
@@ -43,6 +44,7 @@ public class WalrusSmartHomeApp {
                         }
                     }
                 }
+
             }
 
         } catch (Exception exception) {

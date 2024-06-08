@@ -10,6 +10,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/WalrusSmartHome" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -21,19 +24,20 @@
     </option>
   </component>
   <component name="ProjectId" id="2V9kp29dMjubmjMqzfpcECbNfe3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/hrdlifil/Desktop/Java/DoktorskéStudium/WalrusSmartHome",
-    "spring.configuration.checksum": "39799de09dba799f0afa86fd50f416ad"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/hrdlifil/Desktop/Java/DoktorskéStudium/WalrusSmartHome&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;39799de09dba799f0afa86fd50f416ad&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -44,6 +48,8 @@
       <updated>1694255862457</updated>
       <workItem from="1694255863544" duration="73000" />
       <workItem from="1694945489176" duration="1330000" />
+      <workItem from="1715247332032" duration="2430000" />
+      <workItem from="1717869204171" duration="685000" />
     </task>
     <servers />
   </component>
