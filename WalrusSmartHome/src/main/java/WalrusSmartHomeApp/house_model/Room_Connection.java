@@ -21,4 +21,9 @@ public class Room_Connection {
 
     @ManyToOne
     private Room room;
+
+    public Room_Connection(Connection connection, Room room){
+        this.connection = connection;
+        this.room = room;
+    }
 }

@@ -22,6 +22,7 @@ public class WalrusSmartHomeApp {
     public static void main(String[] args){
         ConfigurableApplicationContext appContext = SpringApplication.run(WalrusSmartHomeApp.class, args);
         House house = new House();
+        /*
         LineParser lineParser = new LineParser();
         EventFactory eventFactory = new EventFactory();
         String line;
@@ -33,7 +34,7 @@ public class WalrusSmartHomeApp {
              BufferedReader lineReader = new BufferedReader(reader);){
 
             while (true) {
-                
+
                 while ((line = lineReader.readLine()) != null) {
                     Optional<Map<String, String>> mapOpt = lineParser.parseLine(line);
                     if (mapOpt.isPresent()) {
@@ -50,6 +51,6 @@ public class WalrusSmartHomeApp {
         } catch (Exception exception) {
             System.out.println("Thrown from Parcing without file detection");
             exception.printStackTrace();
-        }
+        }*/
     }
 }

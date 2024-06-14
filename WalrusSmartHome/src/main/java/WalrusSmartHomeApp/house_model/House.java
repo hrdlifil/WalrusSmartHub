@@ -10,6 +10,7 @@ import WalrusSmartHomeApp.sensors.ElectricSensor;
 import WalrusSmartHomeApp.sensors.MotionSensor;
 import WalrusSmartHomeApp.sensors.VibrationSensor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Setter
@@ -23,7 +24,230 @@ public class House {
     private List<ElectricSensor> electricSensorList;
 
     public House(){
-/*
+
+        var hallway = new Room();
+        hallway.setDescription("Hallway");
+        hallway.setRoomIdentification("1");
+
+        var motionSensorHallway = new MotionSensor();
+        motionSensorHallway.setSensorIdentification("13");
+        motionSensorHallway.setDescription("motion sensor in Hallway 1");
+        motionSensorHallway.setRoom(hallway);
+
+        hallway.setMotionSensorList(List.of(motionSensorHallway));
+
+
+        var outsideRoom = new Room();
+        outsideRoom.setDescription("Outside");
+        outsideRoom.setRoomIdentification("2");
+
+
+        var restroom = new Room();
+        restroom.setDescription("Restroom");
+        restroom.setRoomIdentification("3");
+
+        var motionSensorRestroom1 = new MotionSensor();
+        motionSensorRestroom1.setSensorIdentification("14");
+        motionSensorRestroom1.setDescription("motion sensor in Restroom 1");
+        motionSensorRestroom1.setRoom(restroom);
+
+        var motionSensorRestroom2 = new MotionSensor();
+        motionSensorRestroom2.setSensorIdentification("15");
+        motionSensorRestroom2.setDescription("motion sensor in Restroom 2");
+        motionSensorRestroom2.setRoom(restroom);
+
+        restroom.setMotionSensorList(List.of(motionSensorRestroom1, motionSensorRestroom2));
+
+
+
+        var livingRoom = new Room();
+        livingRoom.setDescription("Living room");
+        livingRoom.setRoomIdentification("4");
+
+        var motionSensorLivingroom = new MotionSensor();
+        motionSensorLivingroom.setSensorIdentification("19");
+        motionSensorLivingroom.setDescription("motion sensor in Living room ");
+        motionSensorLivingroom.setRoom(livingRoom);
+
+        var motionSensorLivingroomBedPresence = new MotionSensor();
+        motionSensorLivingroomBedPresence.setSensorIdentification("69");
+        motionSensorLivingroomBedPresence.setDescription("motion sensor in Living room - bed presence ");
+        motionSensorLivingroomBedPresence.setRoom(livingRoom);
+
+        livingRoom.setMotionSensorList(List.of(motionSensorLivingroom, motionSensorLivingroomBedPresence));
+
+
+
+        var kitchen = new Room();
+        kitchen.setDescription("Kitchen");
+        kitchen.setRoomIdentification("5");
+
+        var motionSensorKitchen = new MotionSensor();
+        motionSensorKitchen.setSensorIdentification("21");
+        motionSensorKitchen.setDescription("motion sensor in kitchen");
+        motionSensorKitchen.setRoom(kitchen);
+
+        kitchen.setMotionSensorList(List.of(motionSensorKitchen));
+
+
+
+        var frontDoor = new Connection();
+        frontDoor.setDescription("Front door");
+        frontDoor.setConnectionIdentification("1");
+
+        frontDoor.setRoomConnectionList(List.of(
+                new Room_Connection(frontDoor, outsideRoom),
+                new Room_Connection(frontDoor, hallway)
+        ));
+        frontDoor.setVirtual(false);
+
+        var contactSensorFrontdoor = new ContactSensor();
+        contactSensorFrontdoor.setSensorIdentification("22");
+        contactSensorFrontdoor.setDescription("contact sensor on front door");
+        contactSensorFrontdoor.setConnection(frontDoor);
+        contactSensorFrontdoor.setOnConnection(true);
+
+        frontDoor.setContactSensorList(List.of(contactSensorFrontdoor));
+
+
+
+        var restroomDoor = new Connection();
+        restroomDoor.setDescription("Restroom door");
+        restroomDoor.setConnectionIdentification("8");
+        restroomDoor.setRoomConnectionList(List.of(
+                new Room_Connection(restroomDoor, restroom),
+                new Room_Connection(restroomDoor, hallway)
+        ));
+        restroomDoor.setVirtual(false);
+
+        var contactSensorRestroomdoor = new ContactSensor();
+        contactSensorRestroomdoor.setSensorIdentification("23");
+        contactSensorRestroomdoor.setDescription("contact sensor on restroom door");
+        contactSensorRestroomdoor.setConnection(restroomDoor);
+        contactSensorRestroomdoor.setOnConnection(true);
+
+        restroomDoor.setContactSensorList(List.of(contactSensorRestroomdoor));
+
+
+
+        var hallwayDoor = new Connection();
+        hallwayDoor.setDescription("Hallway virtual door");
+        hallwayDoor.setConnectionIdentification("10");
+        hallwayDoor.setRoomConnectionList(List.of(
+                new Room_Connection(hallwayDoor, kitchen),
+                new Room_Connection(hallwayDoor, hallway)
+        ));
+        hallwayDoor.setVirtual(true);
+
+
+        var kitchenDoor = new Connection();
+        kitchenDoor.setDescription("Kitchen virtual door");
+        kitchenDoor.setConnectionIdentification("12");
+        kitchenDoor.setRoomConnectionList(List.of(
+                new Room_Connection(kitchenDoor, kitchen),
+                new Room_Connection(kitchenDoor, livingRoom)
+        ));
+        kitchenDoor.setVirtual(true);
+
+
+
+
+        var contactSensorFridge = new ContactSensor();
+        contactSensorFridge.setSensorIdentification("25");
+        contactSensorFridge.setDescription("contact sensor on fridge");
+        contactSensorFridge.setOnConnection(false);
+        contactSensorFridge.setOnContactSensorEntity(true);
+
+        var contactSensorEntityFridge = new ContactSensorEntity();
+        contactSensorEntityFridge.setDescription("fridge");
+        contactSensorEntityFridge.setRoom(kitchen);
+        contactSensorEntityFridge.setContactSensorList(List.of(contactSensorFridge));
+
+        contactSensorFridge.setContactSensorEntity(contactSensorEntityFridge);
+
+        var contactSensorSpajz = new ContactSensor();
+        contactSensorSpajz.setSensorIdentification("26");
+        contactSensorSpajz.setDescription("contact sensor on špajz");
+        contactSensorSpajz.setOnConnection(false);
+        contactSensorSpajz.setOnContactSensorEntity(true);
+
+        var contactSensorEntitySpajz = new ContactSensorEntity();
+        contactSensorEntitySpajz.setDescription("špajz");
+        contactSensorEntitySpajz.setRoom(kitchen);
+        contactSensorEntitySpajz.setContactSensorList(List.of(contactSensorSpajz));
+
+        contactSensorSpajz.setContactSensorEntity(contactSensorEntitySpajz);
+
+
+        var vibrationSensorSink = new VibrationSensor();
+        vibrationSensorSink.setSensorIdentification("27");
+        vibrationSensorSink.setDescription("vibration sensor on sink");
+
+        var vibrationSensorEntitySink = new VibrationSensorEntity();
+        vibrationSensorEntitySink.setDescription("Sink");
+        vibrationSensorEntitySink.setRoom(restroom);
+        vibrationSensorEntitySink.setVibrationSensorList(List.of(vibrationSensorSink));
+
+        vibrationSensorSink.setVibrationSensorEntity(vibrationSensorEntitySink);
+
+
+        var vibrationSensorChair = new VibrationSensor();
+        vibrationSensorChair.setSensorIdentification("28");
+        vibrationSensorChair.setDescription("vibration sensor on chair");
+
+        var vibrationSensorEntityChair = new VibrationSensorEntity();
+        vibrationSensorEntityChair.setDescription("Chair");
+        vibrationSensorEntityChair.setRoom(livingRoom);
+        vibrationSensorEntityChair.setVibrationSensorList(List.of(vibrationSensorChair));
+
+        vibrationSensorChair.setVibrationSensorEntity(vibrationSensorEntityChair);
+
+
+
+
+        var electricSensorEntityKettle = new ElectricSensorEntity();
+        electricSensorEntityKettle.setDescription("Kettle");
+
+
+        var electricSensorPlug1 = new ElectricSensor();
+        electricSensorPlug1.setSensorIdentification("30");
+        electricSensorPlug1.setRoom(kitchen);
+        electricSensorPlug1.setElectricSensorEntity(electricSensorEntityKettle);
+
+        var electricSensorPlug2 = new ElectricSensor();
+        electricSensorPlug2.setSensorIdentification("31");
+        electricSensorPlug2.setRoom(livingRoom);
+
+
+        kitchen.setContactSensorEntityList(List.of(contactSensorEntityFridge, contactSensorEntitySpajz));
+        kitchen.setElectricSensorList(List.of(electricSensorPlug1));
+
+
+
+        restroom.setVibrationSensorEntityList(List.of(vibrationSensorEntitySink));
+
+
+
+
+
+        livingRoom.setVibrationSensorEntityList(List.of(vibrationSensorEntityChair));
+
+
+
+
+
+
+        this.roomList = List.of(hallway, outsideRoom, livingRoom, kitchen, restroom);
+        this.connectionList = List.of(frontDoor, restroomDoor, hallwayDoor, kitchenDoor);
+        this.motionSensorList = List.of(motionSensorRestroom2, motionSensorRestroom1, motionSensorKitchen, motionSensorLivingroom, motionSensorLivingroomBedPresence, motionSensorHallway);
+        this.contactSensorList = List.of(contactSensorFrontdoor, contactSensorRestroomdoor, contactSensorFridge, contactSensorSpajz);
+        this.vibrationSensorList = List.of(vibrationSensorSink, vibrationSensorChair);
+        this.electricSensorList = List.of(electricSensorPlug1, electricSensorPlug2);
+
+
+    }
+ /*   public House(){
+
         var hallwayRoom = new Room();
         hallwayRoom.setDescription("Hallway");
         hallwayRoom.setRoomIdentification("1");
@@ -296,9 +520,9 @@ public class House {
         this.contactSensorList = List.of(contactSensorFrontdoor, contactSensorWindow, contactSensorRestroomdoor, contactSensorToiletDoor, contactSensorFridge);
         this.vibrationSensorList = List.of(vibrationSensorBed, vibrationSensorSink, vibrationSensorChair);
         this.electricSensorList = List.of(electricSensorPlug1, electricSensorPlug2);
-*/
 
-    }
+
+    }*/
 
 
 }
